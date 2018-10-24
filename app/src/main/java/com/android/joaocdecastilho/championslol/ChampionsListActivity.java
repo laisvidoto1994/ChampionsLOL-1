@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.joaocdecastilho.championslol.models.Champion;
-import com.android.joaocdecastilho.championslol.models.ChampionCatalog;
 
 import java.util.List;
 
@@ -20,6 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ChampionsListActivity extends AppCompatActivity {
 
     private static final String TAG = "JCarlos";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +43,17 @@ public class ChampionsListActivity extends AppCompatActivity {
                 } else {
                     ListView listaDeChampions = (ListView) findViewById(R.id.lista);
                     List<Champion> champions = response.body();
-                    ArrayAdapter<Champion> adapter = new ArrayAdapter<Champion>(ChampionsListActivity.this, R.layout.activity_champions_list, champions);
+
+                    AdapterChampionsPersonalizado adapter = new AdapterChampionsPersonalizado(champions,ChampionsListActivity.this);
+
                     listaDeChampions.setAdapter(adapter);
 
                     for(Champion c : champions) {
-                        Log.i(TAG, String.format("%s: %s", c.name, c.title));
+                        Log.i(TAG, String.format("%s: %s", c.getName(), c.getTitle()));
+
+
                     }
+                    Log.i("%s","chegou aqui");
                 }
             }
 
