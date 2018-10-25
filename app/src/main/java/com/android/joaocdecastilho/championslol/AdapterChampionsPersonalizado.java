@@ -1,12 +1,16 @@
 package com.android.joaocdecastilho.championslol;
 
 import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.joaocdecastilho.championslol.models.Champion;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,6 +46,8 @@ public class AdapterChampionsPersonalizado extends BaseAdapter {
 
         Champion champion = champions.get(position);
 
+
+        ImageView imageView = (ImageView)view.findViewById(R.id.imageView);
         TextView txtName = (TextView)view.findViewById(R.id.txtName);
         TextView txtTitles = (TextView)view.findViewById(R.id.txtTitles);
 
