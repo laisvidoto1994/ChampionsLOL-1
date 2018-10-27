@@ -2,6 +2,8 @@ package com.android.joaocdecastilho.championslol;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +42,11 @@ public class AdapterChampionsPersonalizado extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         View view = atc.getLayoutInflater().inflate(R.layout.activity_itens_champions,parent,false);
 
-        Champion champion = champions.get(position);
+        final Champion champion = champions.get(position);
 
 
         ImageView imageView = (ImageView)view.findViewById(R.id.imageView);
@@ -53,6 +55,25 @@ public class AdapterChampionsPersonalizado extends BaseAdapter {
 
         txtName.setText(champion.getName());
         txtTitles.setText(champion.getTitle());
+
+        txtName.setOnClickListener(new View.OnClickListener(){
+            public  void  onClick(View view){
+
+                Intent intent = new Intent(atc.getApplicationContext(),detalheChampion.class);
+                intent.putExtra("champions",champion);
+                atc.startActivity(intent);
+             }
+        });
+
+        txtTitles.setOnClickListener(new View.OnClickListener(){
+            public  void  onClick(View view){
+
+                Intent intent = new Intent(atc.getApplicationContext(),detalheChampion.class);
+                intent.putExtra("champions",champion);
+                atc.startActivity(intent);
+            }
+        });
+
 
         return view;
     }

@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ItensChampions"></activity>
+        <activity android:name=".ItensChampions" />
+        <activity android:name=".detalheChampion"></activity>
     </application>
 
 </manifest>

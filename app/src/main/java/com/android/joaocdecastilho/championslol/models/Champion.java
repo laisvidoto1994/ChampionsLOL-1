@@ -1,8 +1,9 @@
 package com.android.joaocdecastilho.championslol.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Champion {
+public class Champion implements Serializable {
     private String name;
     private String title;
     private String icon;
